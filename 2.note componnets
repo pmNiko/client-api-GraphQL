@@ -1,0 +1,43 @@
+Dentro de esta carpeta vamos a crear nuestros componentes 
+MessageList.js 
+MessageForm.js 
+Navbar.js 
+
+En App.js vamos a importar los paquetes necesarios para la navegación
+entre las rutas de la aplicación.
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MessageList from "./componnets /MessageList";
+import MessageForm from "./componnets /MessageForm";
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={MessageList} />
+        <Route exact path="/new-message" component={MessageForm} />
+      </Switch>
+    </Router>
+  );
+}
+
+Ahora vamos a desarrollar dichos componentes.
+Obviaremos por ahora MessageList y MessageForm
+Vamos a configurar el theme de boostwatch para 
+utilizarlo de manera global. en App.js importamos:
+
+import "bootswatch/dist/simplex/bootstrap.min.css";
+
+//esta importación afectará los estilos de toda nuestra App
+ahora si importamos el componente Navigation dentro del Router 
+pero fuera del Route
+
+    <Router>
+      <Navigation />
+      <div className="container p-4">
+        <Switch>
+          <Route exact path="/" component={MessageList} />
+          <Route exact path="/new-message" component={MessageForm} />
+        </Switch>
+      </div>
+    </Router>
