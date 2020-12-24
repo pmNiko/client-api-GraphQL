@@ -1,0 +1,30 @@
+Iniciamos instalando los modulos necesarios para conectar 
+con la API GraphQL
+
+-> npm i 
+    -> react-apollo   //permite la conexion con la API
+    -> graphql-tag    //permite escribir las consultas dentro de react 
+    -> graphql        //modulo principal para graphql 
+    -> apollo-boost   //herramientas adicionales de apollo 
+    -> react-router-dom  //este es el router de react para el navegador 
+    -> @apollo/react-hooks //nos permite utilizar las caracteristicas de react hooks
+    -> bootswatch       //permite estilizar la app - analogo a bootstrap 
+
+Ahora para tener acceso a la herramienta de apollo vamos a importar 
+en index.js los modulos necesarios: 
+    // importación de apollo
+    import ApolloClient from "apollo-boost";
+    import { ApolloProvider } from "@apollo/react-hooks";
+
+Ahora podemos hacer la conexion a la API 
+const client = new ApolloClient({
+  uri: "http://localhost:3100",
+});
+
+Una vez hecho esto debemos encerrar App dentro de ApolloProvider
+y le pasamos el cliente que acabamos de instaciar
+<ApolloProvider client={client}>
+      <App /> 
+</ApolloProvider>
+
+Con esto ya tenemos configurada la conexión a la API 
